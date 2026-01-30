@@ -124,6 +124,7 @@ def transform_correlation_to_index(
     # index_x --> index_y will be cpu to gpu mapping
     # index_y --> index_x will be gpu to cpu mapping
     merged = on_cpu.merge(on_gpu, on="correlation", how="inner")
+    df["index_correlation"] = df["index_correlation"].astype("int32")
     df.loc[merged["index_x"], "index_correlation"] = merged["index_y"].values
     df.loc[merged["index_y"], "index_correlation"] = merged["index_x"].values
     df["index_correlation"] = pd.to_numeric(df["index_correlation"], downcast="integer")
