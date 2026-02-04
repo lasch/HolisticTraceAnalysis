@@ -431,7 +431,7 @@ def _parse_trace_dataframe_ijson(
         t_end = time.perf_counter_ns()
         logger.info(
             f"Parsed {trace_file_path} metadata in "
-            f"{(t_end - t_start)/1000000:.2f} milli seconds"
+            f"{(t_end - t_start) / 1000000:.2f} milli seconds"
         )
 
     logger.info(
@@ -513,7 +513,7 @@ def parse_trace_dataframe(
         current, peak = tracemalloc.get_traced_memory()
         tracemalloc.stop()
         logger.warning(
-            f"Parser Memory usage peak = {(peak/1024/1024):.2f} MB, current = {(current/1024/1024):.2f} MB"
+            f"Parser Memory usage peak = {(peak / 1024 / 1024):.2f} MB, current = {(current / 1024 / 1024):.2f} MB"
         )
     return meta, df, local_symbol_table
 

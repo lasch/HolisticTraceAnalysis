@@ -147,7 +147,7 @@ def _check_timeline_input(df: pd.DataFrame, setting: TimelinePlotSetting) -> boo
     }
     if not must_have.issubset(set(df.columns)):
         logger.error(
-            f"The dataframe doesn't contain the required column(s): {must_have-set(df.columns)}"
+            f"The dataframe doesn't contain the required column(s): {must_have - set(df.columns)}"
         )
         return False
     return True
@@ -280,7 +280,7 @@ def align_module_with_kernels(
     required_columns = REQUIRED_COLUMNS_FOR_CPU_GPU_ALIGNMENT
 
     if not required_columns.issubset(set(events_df.columns)):
-        error_msg = f"The input df doesn't contain required columns: {required_columns-set(events_df.columns)}"
+        error_msg = f"The input df doesn't contain required columns: {required_columns - set(events_df.columns)}"
         logger.warning(error_msg)
         raise ValueError(error_msg)
 

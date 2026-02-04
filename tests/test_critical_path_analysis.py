@@ -214,7 +214,7 @@ class CriticalPathAnalysisTestCase(unittest.TestCase):
             if e.type in {CPEdgeType.OPERATOR_KERNEL, CPEdgeType.KERNEL_KERNEL_DELAY}:
                 self.assertTrue(
                     (u, v) in cp_graph.edge_to_event_map,
-                    msg=f"edge = {(u,v)}, obj = {e}",
+                    msg=f"edge = {(u, v)}, obj = {e}",
                 )
                 self.assertTrue(cp_graph.get_event_attribution_for_edge(e))
             else:
@@ -673,7 +673,7 @@ class EndToEndTestCase(unittest.TestCase):
                 self.assertLessEqual(
                     diff_percentage,
                     tolerance,
-                    f"Critical event count difference ({len_1} vs {len_2}) exceeds {tolerance*100}% tolerance",
+                    f"Critical event count difference ({len_1} vs {len_2}) exceeds {tolerance * 100}% tolerance",
                 )
             else:
                 # Both are empty, they're equal

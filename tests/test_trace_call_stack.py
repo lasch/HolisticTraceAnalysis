@@ -169,8 +169,8 @@ class CallStackTestCase(unittest.TestCase):
         s = set(csg2.nodes[new_root_index].children)
         s1 = set(self.nodes_1[self.root_index_1].children)
         s2 = set(self.nodes_2[new_root_index].children)
-        self.assertTrue(s.issuperset(s1), f"nodes {s1-s} is in {s1} but not in {s}")
-        self.assertTrue(s.issuperset(s2), f"nodes {s2-s} is in {s2} but not in {s}")
+        self.assertTrue(s.issuperset(s1), f"nodes {s1 - s} is in {s1} but not in {s}")
+        self.assertTrue(s.issuperset(s2), f"nodes {s2 - s} is in {s2} but not in {s}")
 
         for c in csg1.nodes[new_root_index].children:
             path = csg1.get_path_to_root(c)
